@@ -1,3 +1,5 @@
+import { MiniMaple } from "./miniMaple";
+
 document.addEventListener('DOMContentLoaded',setup)
 
 function setup() {
@@ -7,8 +9,14 @@ function setup() {
 function addSomething(){
     const someDummyDiv = document.createElement('div');
     someDummyDiv.classList.add('generated');
-    const count = document.getElementsByClassName('generated').length;
-    someDummyDiv.innerHTML = `I was created by JS! There are already ${count} of my friends!`;
+    let f = document.getElementById('func').value
+    let d = document.getElementById('d').value
+    if (f === '' || d.length != 1) {
+        alert('Некорректный ввод!')
+        return
+    }
+    let counter = new MiniMaple()
+    someDummyDiv.innerHTML = `${d} | ${f} ==> ${counter.diff(f, d)}`;
     const container = document.getElementById('container');
     container.appendChild(someDummyDiv);
 }
