@@ -12,6 +12,12 @@ test('normal diff 2', () => {
     expect(f).toBe('12*x^2-2*x')
 })
 
+test('normal diff with 0', () => {
+    let counter = new MiniMaple()
+    let f = counter.diff('4*x^3-x^2+y', 'x')
+    expect(f).toBe('12*x^2-2*x')
+})
+
 test('diff of other variabe', () => {
     let counter = new MiniMaple()
     let f = counter.diff('4*x^3', 'y')
@@ -28,4 +34,10 @@ test('diff of just x', () => {
     let counter = new MiniMaple()
     let f = counter.diff('x', 'x')
     expect(f).toBe('1')
+})
+
+test('diff of just x on y', () => {
+    let counter = new MiniMaple()
+    let f = counter.diff('x', 'y')
+    expect(f).toBe('0')
 })
