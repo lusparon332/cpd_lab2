@@ -16,10 +16,11 @@ class MiniMaple{
                 elem = ''
             }
         }
-        //if (elem != '')
-        r = this.simple_dif(elem, d)
+        let r = this.simple_dif(elem, d)
         if (r != '0')
             res += sign + r
+        if (r === '0' & res === '')
+            res += r
         return res
     }
 
@@ -42,17 +43,17 @@ class MiniMaple{
                 pow = -1
             }
         }
-        else /*if (things.length === 2)*/ {
+        else {
             num = parseInt(things[0])
             if (things[1].includes('^') && things[1].includes(d)) {
                 let a = (things[1].split('^'))[1]
                 pow =  a - 1
                 num *= a
             }
-            /*else if (things[1].includes(d)) {
+            else if (things[1].includes(d)) {
                 pow = 0
                 num *= 1
-            }*/
+            }
             else {
                 pow = -1
             }
